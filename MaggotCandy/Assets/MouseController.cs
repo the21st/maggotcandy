@@ -75,7 +75,7 @@ public class MouseController : MonoBehaviour {
 		// TODO physics, breakup candy, etc.
 
 		// Applies an explosion force to all nearby rigidbodies
-		var explosionPos = new Vector2(transform.position.x, transform.position.y);
+		var explosionPos = new Vector2(transform.position.x, transform.position.y - 0.5f * renderer.bounds.extents.y);
 		var colliders = Physics2D.OverlapCircleAll(explosionPos, SmashRadius);
 		
 		foreach (var hitObject in colliders)
