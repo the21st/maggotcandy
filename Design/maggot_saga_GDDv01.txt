@@ -1,0 +1,67 @@
+Candy Jam
+  Fight Trademark Trolling - Make a Game
+    http://itch.io/jam/candyjam
+
+    
+MAGGOT SAGA: CRUSH THE CANDY
+============================
+  brought to you by 
+    Peter, Simon and Tash
+    
+GAME DESIGN DOCUMENT v0.1
+
+# set:
+------
+  - endless runner with hiscore objective
+
+# setting:
+----------
+  - backround
+    - high standart office of scum executive
+
+  - foreground / gameplay area
+    - desk which define boundaries of playground
+
+  - gui
+    - stoned bar
+      - sniffing candy dust raise the stoned bar
+      - stoned bar is decreased by time, empty bar equals game over
+    - score counter
+      - score is added after dust is sniffed
+      - combo bonuses for dust color chaining
+    - revenue counter
+      - shows realtime income from company cloned video game
+      - as time progresses it grow faster
+      - every rounded value makes candy rain to desk
+      
+  - controled tools
+    - fist with straw made from banknote
+    - 2 switchable modes: fist (crushing) / straw (sniffing)
+  
+# mechanics:
+------------
+  - crush
+    - crushing the candies with every hit from smaller chunks to the dust (think asteroids)
+    - crushing the maggots with one hit makes slime
+
+  - sniff
+    - sniffing dust selectively, avoiding bigger chunks of candies and maggots (think flight control)
+    - sniffing dust glued with slime to desk is not possible
+    - sniffing whole candies is not possible
+    - sniffing bigger chunks of crushed candies jams the straw, can be unjamed by fist hit
+    - sniffing maggot equals game over  
+  
+# objects:
+----------
+  - candies
+    - different shapes, sizes and colors
+    - can be crushed with fist, at least 4 different chunk levels
+    - behave like rigid bodies     
+    
+  - maggots
+    - periodicaly sneezed out from nose
+    - 2 states: moving (animated) / squeezed (static)
+    - moving through desk in random directions (maybe patterns)
+    - can fall over the desk edge (removing them from playable area)
+    - can be crushed with fist to slime
+    - slime glue dust to desk
