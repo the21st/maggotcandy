@@ -1,6 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public class PushParams
+{
+	public float SmashPower;
+	public Vector2 ImpactPos;
+	public float SmashRadius;
+
+	public PushParams (float smashPower, Vector2 impactPos, float smashRadius)
+	{
+		SmashPower = smashPower;
+		ImpactPos = impactPos;
+		SmashRadius = smashRadius;
+	}
+}
+
 public class MouseController : MonoBehaviour {
 
 	enum FistState
@@ -13,6 +27,7 @@ public class MouseController : MonoBehaviour {
 	public float FallLength;
 	public float StaySmashed;
 	public float SmashRadius;
+	public float CrushRadius;
 	public float SmashPower;
 
 	private float _currentFallLength;
@@ -72,17 +87,27 @@ public class MouseController : MonoBehaviour {
 	{
 		_state = FistState.Smashed;
 		_smashedTime = 0;
-		// TODO physics, breakup candy, etc.
+		
+		var impactPos = new Vector2(transform.position.x, transform.position.y - 0.5f * renderer.bounds.extents.y);
+
+		var crushColliders = Physics2D.OverlapCircleAll (impactPos, CrushRadius);
+
+		foreach (var crushObject in crushColliders)
+		{
+			if (crushObject)
+			{
+				crushObject.SendMessage("Crush", new PushParams(SmashPower, impactPos, SmashRadius), SendMessageOptions.DontRequireReceiver);
+			}
+		}
 
 		// Applies an explosion force to all nearby rigidbodies
-		var explosionPos = new Vector2(transform.position.x, transform.position.y - 0.5f * renderer.bounds.extents.y);
-		var colliders = Physics2D.OverlapCircleAll(explosionPos, SmashRadius);
+		var repulseColliders = Physics2D.OverlapCircleAll(impactPos, SmashRadius);
 		
-		foreach (var hitObject in colliders)
+		foreach (var hitObject in repulseColliders)
 		{
 			if (hitObject && hitObject.rigidbody2D)
 			{
-				hitObject.rigidbody2D.AddExplosionForce(SmashPower, explosionPos, SmashRadius);
+				hitObject.rigidbody2D.AddExplosionForce(SmashPower, impactPos, SmashRadius);
 			}
 		}
 	}
