@@ -12,10 +12,11 @@ public class MouseController : MonoBehaviour {
 
 	public float FallLength;
 	public float StaySmashed;
+	public float SmashRadius;
+	public float SmashPower;
 
 	private float _currentFallLength;
 	private FistState _state;
-	private Vector2 _fallStartPosition;
 	private float _fallSpeed;
 	private float _smashedTime;
 
@@ -35,7 +36,6 @@ public class MouseController : MonoBehaviour {
 				_currentFallLength = 0;
 				_fallSpeed = 4;
 				_state = FistState.Smashing;
-				_fallStartPosition = transform.position;
 			}
 			break;
 		case FistState.Smashing:
@@ -73,5 +73,17 @@ public class MouseController : MonoBehaviour {
 		_state = FistState.Smashed;
 		_smashedTime = 0;
 		// TODO physics, breakup candy, etc.
+
+		// Applies an explosion force to all nearby rigidbodies
+		var explosionPos = new Vector2(transform.position.x, transform.position.y);
+		var colliders = Physics2D.OverlapCircleAll(explosionPos, SmashRadius);
+		
+		foreach (var hitObject in colliders)
+		{
+			if (hitObject && hitObject.rigidbody2D)
+			{
+				hitObject.rigidbody2D.AddExplosionForce(SmashPower, explosionPos, SmashRadius);
+			}
+		}
 	}
 }
