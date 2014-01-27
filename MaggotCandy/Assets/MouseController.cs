@@ -88,7 +88,7 @@ public class MouseController : MonoBehaviour {
 		_state = FistState.Smashed;
 		_smashedTime = 0;
 		
-		var impactPos = new Vector2(transform.position.x, transform.position.y - 0.5f * renderer.bounds.extents.y);
+		var impactPos = new Vector2(transform.position.x, transform.position.y);
 
 		var crushColliders = Physics2D.OverlapCircleAll (impactPos, CrushRadius);
 
