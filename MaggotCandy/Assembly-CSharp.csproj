@@ -50,7 +50,9 @@
      <Compile Include="Assets\Extensions.cs" />
      <Compile Include="Assets\FallTrigger.cs" />
      <Compile Include="Assets\Fallable.cs" />
+     <Compile Include="Assets\Game.cs" />
      <Compile Include="Assets\SmashController.cs" />
+     <Compile Include="Assets\SnortController.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
   </ItemGroup>
   <ItemGroup>
