@@ -15,7 +15,7 @@ public class PushParams
 	}
 }
 
-public class MouseController : MonoBehaviour {
+public class SmashController : MonoBehaviour {
 
 	enum FistState
 	{
