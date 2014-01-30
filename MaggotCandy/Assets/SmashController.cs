@@ -41,11 +41,11 @@ public class SmashController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		switch (_state)
 		{
 		case FistState.Idle:
-			transform.position = Extensions.To2D(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+			transform.position = Extensions.GetMousePosition2D();
 			if (Input.GetMouseButtonDown(0))
 			{
 				_currentFallLength = 0;
