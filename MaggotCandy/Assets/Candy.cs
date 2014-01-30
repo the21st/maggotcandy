@@ -12,8 +12,8 @@ public class Candy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		var scale = (10 - transform.position.y) / 10;
-		transform.localScale = new Vector3 (scale, scale, scale);
+		//var scale = (10 - transform.position.y) / 10;
+		//transform.localScale = new Vector3 (scale, scale, scale);
 	}
 
 	void Crush(PushParams pushParams)
