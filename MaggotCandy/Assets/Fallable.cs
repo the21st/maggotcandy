@@ -7,7 +7,7 @@ public class Fallable : MonoBehaviour {
 	{
 		this.renderer.sortingOrder = layerOrder;
 		this.collider2D.enabled = false;
-		this.rigidbody2D.gravityScale = 10;
+		this.rigidbody2D.gravityScale = 7.5f;
 	}
 	
 	// Update is called once per frame
