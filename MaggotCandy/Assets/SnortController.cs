@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SnortController : MonoBehaviour {
 
+	public float SnortDistance = 0.1f;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -23,18 +25,30 @@ public class SnortController : MonoBehaviour {
 	void Snort ()
 	{
 		var collider = this.GetComponent<CircleCollider2D>();
-		var snortPoint = this.transform.position.To22D() + collider.center;
+		var snortPoint = Extensions.To22D(this.transform.position) + collider.center;
 		var suckedObjects = Physics2D.OverlapCircleAll (snortPoint, collider.radius);
 
 		foreach (var suckedObject in suckedObjects)
 		{
 			if (suckedObject && suckedObject.rigidbody2D)
 			{
-				var distance = Vector3.Distance(suckedObject.transform.position, collider.center);
-				var forceScale = 3 * (1 - distance / collider.radius);
-				var forceDir = suckedObject.transform.position.To22D() - snortPoint;
+				var suckedObjectPos = suckedObject.transform.position.To22D ();
+				var distance = Vector2.Distance (suckedObjectPos, snortPoint);
+
+				if (distance > collider.radius)
+				{
+					distance = collider.radius;
+				}
+
+				var forceScale = 10 * (1 - distance / collider.radius);
+				var forceDir = snortPoint - suckedObjectPos;
 				forceDir.Normalize();
 				suckedObject.rigidbody2D.AddForce(forceScale * forceDir);
+
+				if (distance < SnortDistance)
+				{
+					suckedObject.SendMessage("GetSnorted");
+				}
 			}
 		}
 	}

@@ -87,8 +87,10 @@ public class SmashController : MonoBehaviour {
 	{
 		_state = FistState.Smashed;
 		_smashedTime = 0;
-		
-		var impactPos = new Vector2(transform.position.x, transform.position.y);
+
+		var smashCollider = this.GetComponent<CircleCollider2D>();
+
+		var impactPos = new Vector2(transform.position.x, transform.position.y) + smashCollider.center;
 
 		var crushColliders = Physics2D.OverlapCircleAll (impactPos, CrushRadius);
 
