@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PushParams
 {
@@ -29,6 +30,8 @@ public class SmashController : MonoBehaviour {
 	public float SmashRadius;
 	public float CrushRadius;
 	public float SmashPower;
+
+	public List<AudioClip> SmashSounds;
 
 	private float _currentFallLength;
 	private FistState _state;
@@ -87,6 +90,10 @@ public class SmashController : MonoBehaviour {
 	{
 		_state = FistState.Smashed;
 		_smashedTime = 0;
+
+		var clipIndex = Random.Range (0, SmashSounds.Count);
+		audio.clip = SmashSounds [clipIndex];
+		audio.Play();
 
 		var smashCollider = this.GetComponent<CircleCollider2D>();
 
