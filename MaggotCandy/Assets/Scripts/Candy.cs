@@ -6,6 +6,8 @@ public class Candy : MonoBehaviour {
 
 	public List<GameObject> CandyPrefabs;
 
+	public List<AudioClip> CrushSounds;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +21,9 @@ public class Candy : MonoBehaviour {
 
 	void Crush(PushParams pushParams)
 	{
+		var clip = CrushSounds.GetRandomElement();
+		AudioSource.PlayClipAtPoint (clip, transform.position);
+
 		var position = transform.position;
 		Destroy (gameObject);
 		

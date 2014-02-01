@@ -91,8 +91,7 @@ public class SmashController : MonoBehaviour {
 		_state = FistState.Smashed;
 		_smashedTime = 0;
 
-		var clipIndex = Random.Range (0, SmashSounds.Count);
-		audio.clip = SmashSounds [clipIndex];
+		audio.clip = SmashSounds.GetRandomElement();
 		audio.Play();
 
 		var smashCollider = this.GetComponent<CircleCollider2D>();

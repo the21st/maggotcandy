@@ -7,6 +7,6 @@ public class FallTrigger : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		other.SendMessage("Fall", ChangeLayerOrder);
+		other.SendMessage("Fall", ChangeLayerOrder, SendMessageOptions.DontRequireReceiver);
 	}
 }
