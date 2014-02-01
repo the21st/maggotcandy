@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Snortable : MonoBehaviour {
 
-	public ScoreCounter Score;
-
 	// Use this for initialization
 	void Start () {
 	

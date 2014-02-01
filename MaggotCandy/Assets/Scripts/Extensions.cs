@@ -1,7 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public static class Extensions
 {
+	public static T GetRandomElement<T>(this List<T> list)
+	{
+		return list [Random.Range (0, list.Count)];
+	}
+
 	public static Vector3 To2D(this Vector2 v)
 	{
 		return new Vector3(v.x, v.y, 0);
