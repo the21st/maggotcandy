@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\SnortController.cs" />
      <Compile Include="Assets\Scripts\Snortable.cs" />
      <Compile Include="Assets\Scripts\StonedBar.cs" />
+     <Compile Include="Assets\Spawner.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
