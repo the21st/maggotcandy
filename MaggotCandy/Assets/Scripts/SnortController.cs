@@ -47,7 +47,7 @@ public class SnortController : MonoBehaviour {
 
 				if (distance < SnortDistance)
 				{
-					suckedObject.SendMessage("GetSnorted");
+					suckedObject.SendMessage("GetSnorted", SendMessageOptions.DontRequireReceiver);
 				}
 			}
 		}
