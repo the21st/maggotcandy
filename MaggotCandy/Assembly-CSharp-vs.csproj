@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\GameOverGUI.cs" />
      <Compile Include="Assets\Scripts\Maggot.cs" />
      <Compile Include="Assets\Scripts\ScoreCounter.cs" />
+     <Compile Include="Assets\Scripts\Slime.cs" />
      <Compile Include="Assets\Scripts\SmashController.cs" />
      <Compile Include="Assets\Scripts\SnortController.cs" />
      <Compile Include="Assets\Scripts\Snortable.cs" />
