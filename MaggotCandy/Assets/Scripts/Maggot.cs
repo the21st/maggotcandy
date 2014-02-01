@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Maggot : MonoBehaviour
 {
+	public GameObject CrushedMaggot;
+
+	public List<AudioClip> SquashSounds;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -32,6 +37,9 @@ public class Maggot : MonoBehaviour
 
 	void Crush(PushParams pushParams)
 	{
+		AudioSource.PlayClipAtPoint(SquashSounds.GetRandomElement(), transform.position);
+
+		Instantiate(CrushedMaggot, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}
 }

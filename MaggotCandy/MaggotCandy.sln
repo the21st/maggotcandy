@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{99CC9433-D24F-B572-440B-E0A2EE533E49}") = "MaggotCandy", "Assembly-CSharp.csproj", "{2F566242-0289-7099-C43E-CF92B6215750}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{2F566242-0289-7099-C43E-CF92B6215750}"
 EndProject
-Project("{99CC9433-D24F-B572-440B-E0A2EE533E49}") = "MaggotCandy", "Assembly-UnityScript-firstpass.unityproj", "{94E6E989-D999-036A-B4B5-4CD7150846AB}"
+Project("{b955b5aa-9c1c-4cd6-9a10-9e34431be3eb}") = "Assembly-UnityScript-firstpass", "Assembly-UnityScript-firstpass.unityproj", "{94E6E989-D999-036A-B4B5-4CD7150846AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,15 +20,12 @@ Global
 		{94E6E989-D999-036A-B4B5-4CD7150846AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94E6E989-D999-036A-B4B5-4CD7150846AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-				GlobalSection(MonoDevelopProperties) = preSolution
+	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.TabsToSpaces = False
-		$1.EolMarker = Windows
+		$1.EolMarker = Unix
 		$1.inheritsSet = VisualStudio
 		$1.inheritsScope = text/plain
 		$1.scope = text/x-csharp
@@ -58,6 +55,11 @@ Global
 		$3.inheritsSet = Mono
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
+		$0.DotNetNamingPolicy = $4
+		$4.DirectoryNamespaceAssociation = None
+		$4.ResourceNamePolicy = FileFormatDefault
 	EndGlobalSection
-
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 EndGlobal
