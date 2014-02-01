@@ -19,6 +19,14 @@ public class SnortController : MonoBehaviour {
 		if (Input.GetMouseButton (0))
 		{
 			Snort();
+			if (!audio.isPlaying)
+			{
+				audio.Play();
+			}
+		}
+		else
+		{
+			audio.Stop();
 		}
 	}
 
