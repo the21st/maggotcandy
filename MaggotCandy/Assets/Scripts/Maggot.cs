@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Maggot : MonoBehaviour
@@ -23,8 +23,6 @@ public class Maggot : MonoBehaviour
 		}
 
 		transform.position += Time.deltaTime * direction;
-
-		transform.Rotate(new Vector3 (0, 0, 1), -1);
 	}
 
 	void Crush(PushParams pushParams)
