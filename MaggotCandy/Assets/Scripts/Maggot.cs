@@ -5,13 +5,17 @@ using System.Collections.Generic;
 public class Maggot : MonoBehaviour
 {
 	public GameObject CrushedMaggot;
-
 	public List<AudioClip> SquashSounds;
+
+	private float _movementSpeed;
+	private float _rotationSpeed;
 
 	// Use this for initialization
 	void Start()
 	{
 		transform.localRotation = Quaternion.AngleAxis (Random.Range (0, 360f), new Vector3 (0, 0, 1));
+		_movementSpeed = Random.Range(0.1f, 0.5f);
+		_rotationSpeed = Random.Range(-0.2f, 0.2f);
 	}
     
 	// Update is called once per frame
@@ -27,7 +31,9 @@ public class Maggot : MonoBehaviour
 			transform.localScale = new Vector3(1, 1, 1);
 		}
 
-		transform.position += Time.deltaTime * direction;
+		transform.position += _movementSpeed * Time.deltaTime * direction;
+
+		transform.Rotate(new Vector3(0, 0, 1), _rotationSpeed);
 	}
 	
 	void Fall(int layerOrder)
