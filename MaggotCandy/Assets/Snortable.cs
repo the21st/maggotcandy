@@ -19,5 +19,6 @@ public class Snortable : MonoBehaviour {
 	{
 		Destroy (gameObject);
 		ScoreCounter.Add(1);
+		StonedBar.Add (0.1f);
 	}
 }
