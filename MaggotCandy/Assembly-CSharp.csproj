@@ -58,8 +58,8 @@
      <Compile Include="Assets\Scripts\SmashController.cs" />
      <Compile Include="Assets\Scripts\SnortController.cs" />
      <Compile Include="Assets\Scripts\Snortable.cs" />
+     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\StonedBar.cs" />
-     <Compile Include="Assets\Spawner.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
   </ItemGroup>
   <ItemGroup>
