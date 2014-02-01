@@ -46,16 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Candy.cs" />
-     <Compile Include="Assets\Extensions.cs" />
-     <Compile Include="Assets\FallTrigger.cs" />
-     <Compile Include="Assets\Fallable.cs" />
-     <Compile Include="Assets\Game.cs" />
-     <Compile Include="Assets\ScoreCounter.cs" />
-     <Compile Include="Assets\SmashController.cs" />
-     <Compile Include="Assets\SnortController.cs" />
-     <Compile Include="Assets\Snortable.cs" />
-     <Compile Include="Assets\StonedBar.cs" />
+     <Compile Include="Assets\Scripts\Candy.cs" />
+     <Compile Include="Assets\Scripts\Extensions.cs" />
+     <Compile Include="Assets\Scripts\FallTrigger.cs" />
+     <Compile Include="Assets\Scripts\Fallable.cs" />
+     <Compile Include="Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Scripts\GameOverGUI.cs" />
+     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
+     <Compile Include="Assets\Scripts\SmashController.cs" />
+     <Compile Include="Assets\Scripts\SnortController.cs" />
+     <Compile Include="Assets\Scripts\Snortable.cs" />
+     <Compile Include="Assets\Scripts\StonedBar.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
   </ItemGroup>
   <ItemGroup>

@@ -4,9 +4,13 @@ using System.Collections;
 public class StonedBar : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		_progress = 0.2f;
+	void Start ()
+	{
+		_progress = StonedStartValue;
 	}
+
+	public float StonedDecaySpeed = 0.05f;
+	public float StonedStartValue = 0.5f;
 
 	private static float _progress = 0;
 	public Vector2 pos  = new Vector2(20, 40);
@@ -28,7 +32,13 @@ public class StonedBar : MonoBehaviour {
 	
 	void Update()
 	{
-		_progress -= 0.05f *  Time.deltaTime;
+		_progress -= StonedDecaySpeed *  Time.deltaTime;
+
+		if (_progress <= 0)
+		{
+			Application.LoadLevel("gameOver");
+		}
+
 		_progress = Mathf.Clamp01 (_progress);
 	}
 }
