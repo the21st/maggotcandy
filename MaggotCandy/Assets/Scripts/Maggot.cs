@@ -24,6 +24,11 @@ public class Maggot : MonoBehaviour
 
 		transform.position += Time.deltaTime * direction;
 	}
+	
+	void Fall(int layerOrder)
+	{
+		enabled = false;
+	}
 
 	void Crush(PushParams pushParams)
 	{
