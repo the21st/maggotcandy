@@ -7,7 +7,7 @@ public static class Extensions
 		return new Vector3(v.x, v.y, 0);
 	}
 
-	public static Vector2 To22D(this Vector2 v)
+	public static Vector2 To22D(this Vector3 v)
 	{
 		return new Vector2(v.x, v.y);
 	}
