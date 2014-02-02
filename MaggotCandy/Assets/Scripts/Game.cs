@@ -16,6 +16,9 @@ public class Game : MonoBehaviour {
 		GameOver
 	}
 
+	public Texture2D StartGameImage;
+	public GameObject GUIObject;
+
 	public GameObject SmashFist;
 	public GameObject SnortFist;
 
@@ -24,17 +27,27 @@ public class Game : MonoBehaviour {
 	private GameObject _currentFist;
 
 	private GameState _state = GameState.Start;
+	
+	private GUIStyle _textStyle;
 
 	// Use this for initialization
 	void Start ()
 	{
+		GUIObject.SetActive(false);
+
 		Time.timeScale = 0;
+		
+		_textStyle = new GUIStyle ();
+		_textStyle.normal.textColor = Color.black;
+		_textStyle.fontSize = 26;
+		_textStyle.alignment = TextAnchor.MiddleCenter;
 	}
 
-	void GameOver()
+	public void GameOver()
 	{
 		Time.timeScale = 0;
 		_state = GameState.GameOver;
+		GUIObject.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -48,6 +61,7 @@ public class Game : MonoBehaviour {
 					Time.timeScale = 1;
 					_state = GameState.Running;
 					_currentFist = (GameObject)Instantiate (SmashFist, Extensions.GetMousePosition3D (), Quaternion.identity);
+					GUIObject.SetActive(true);
 				}
 				break;
 			case GameState.Running:
@@ -79,6 +93,30 @@ public class Game : MonoBehaviour {
 				default:
 					throw new System.ArgumentOutOfRangeException();
 			}
+		}
+	}
+
+	void OnGUI()
+	{
+		switch (_state)
+		{
+			case GameState.Start:
+				GUI.DrawTexture(new Rect(0,0, Screen.width, Screen.height), StartGameImage);
+				break;
+			case GameState.Running:
+				break;
+			case GameState.GameOver:
+				var scoreText = "GAME OVER";
+				var centerScreen = new Vector2(0.5f * Screen.width, 0.5f * Screen.height);
+				GUI.Label (new Rect (centerScreen.x, centerScreen.y, 0, 0), scoreText, _textStyle);
+				
+				if (GUI.Button (new Rect(centerScreen.x - 100, centerScreen.y + 25, 200, 50), "Try again"))
+				{
+					Application.LoadLevel("game");
+				}
+				break;
+			default:
+				throw new System.ArgumentOutOfRangeException();
 		}
 	}
 }

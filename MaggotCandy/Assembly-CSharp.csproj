@@ -52,7 +52,6 @@
      <Compile Include="Assets\Scripts\Fallable.cs" />
      <Compile Include="Assets\Scripts\FallingSpawner.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
-     <Compile Include="Assets\Scripts\GameOverGUI.cs" />
      <Compile Include="Assets\Scripts\Maggot.cs" />
      <Compile Include="Assets\Scripts\RandomSprite.cs" />
      <Compile Include="Assets\Scripts\ScoreCounter.cs" />

@@ -54,13 +54,13 @@ public class Maggot : MonoBehaviour
 			_gameOver = true;
 			audio.Play();
 
-			Invoke("GameOver", audio.clip.length);
+			Invoke("Snorted", audio.clip.length);
 		}
 	}
 
-	void GameOver()
+	void Snorted()
 	{
-		Application.LoadLevel("gameOver");
+		FindObjectOfType<Game>().GameOver();
 	}
 
 	void Crush(PushParams pushParams)

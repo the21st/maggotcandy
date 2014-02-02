@@ -36,7 +36,7 @@ public class StonedBar : MonoBehaviour {
 
 		if (_progress <= 0)
 		{
-			Application.LoadLevel("gameOver");
+			FindObjectOfType<Game>().GameOver();
 		}
 
 		_progress = Mathf.Clamp01 (_progress);
