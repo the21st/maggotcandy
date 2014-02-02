@@ -33,14 +33,14 @@ public class SnortController : MonoBehaviour {
 	void Snort ()
 	{
 		var collider = this.GetComponent<CircleCollider2D>();
-		var snortPoint = Extensions.To22D(this.transform.position) + collider.center;
+		var snortPoint = Extensions.To2D(this.transform.position) + collider.center;
 		var suckedObjects = Physics2D.OverlapCircleAll (snortPoint, collider.radius);
 
 		foreach (var suckedObject in suckedObjects)
 		{
 			if (suckedObject && suckedObject.rigidbody2D)
 			{
-				var suckedObjectPos = suckedObject.transform.position.To22D ();
+				var suckedObjectPos = suckedObject.transform.position.To2D ();
 				var distance = Vector2.Distance (suckedObjectPos, snortPoint);
 
 				if (distance > collider.radius)

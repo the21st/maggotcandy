@@ -8,19 +8,19 @@ public static class Extensions
 		return list [Random.Range (0, list.Count)];
 	}
 
-	public static Vector3 To2D(this Vector2 v)
+	public static Vector3 To3D(this Vector2 v)
 	{
 		return new Vector3(v.x, v.y, 0);
 	}
 
-	public static Vector2 To22D(this Vector3 v)
+	public static Vector2 To2D(this Vector3 v)
 	{
 		return new Vector2(v.x, v.y);
 	}
 	
 	public static Vector2 GetMousePosition2D()
 	{
-		return Extensions.To2D (Camera.main.ScreenToWorldPoint (Input.mousePosition));
+		return Extensions.To3D (Camera.main.ScreenToWorldPoint (Input.mousePosition));
 	}
 	
 	public static Vector2 GetMousePosition3D()
