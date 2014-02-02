@@ -23,7 +23,7 @@ public class FallingSpawner : MonoBehaviour
 			transform.position = (Target + new Vector2(0, -5)).To3D();
 		}
 
-		rigidbody2D.AddTorque(3000);
+		rigidbody2D.AddTorque(Random.Range(-4000, 4000));
 	}
 	
 	// Update is called once per frame
