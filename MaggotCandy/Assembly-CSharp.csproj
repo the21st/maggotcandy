@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\GameOverGUI.cs" />
      <Compile Include="Assets\Scripts\Maggot.cs" />
+     <Compile Include="Assets\Scripts\RandomSprite.cs" />
      <Compile Include="Assets\Scripts\ScoreCounter.cs" />
      <Compile Include="Assets\Scripts\Slime.cs" />
      <Compile Include="Assets\Scripts\SmashController.cs" />
