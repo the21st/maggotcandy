@@ -6,6 +6,9 @@ public class Spawner : MonoBehaviour
 {
 	public GameObject FallingObject;
 
+	public AudioClip MaggotSpawnSound;
+	public AudioClip CandySpawnSound;
+
 	public List<GameObject> CandyToSpawn;
 	public List<GameObject> MaggotsToSpawn;
 	public float CandyFallPeriod = 3;
@@ -30,6 +33,7 @@ public class Spawner : MonoBehaviour
 
 	void Sneeze()
 	{
+		audio.clip = MaggotSpawnSound;
 		audio.Play();
 
 		var position = GenerateSpawnPos();
@@ -42,6 +46,9 @@ public class Spawner : MonoBehaviour
 
 	void SpawnCandy()
 	{
+		audio.clip = CandySpawnSound;
+		audio.Play();
+
 		var position = GenerateSpawnPos();
 
 		var fallingObject = (GameObject) Instantiate(FallingObject);
