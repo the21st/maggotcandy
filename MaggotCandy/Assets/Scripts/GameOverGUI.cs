@@ -10,15 +10,16 @@ public class GameOverGUI : MonoBehaviour {
 		_textStyle = new GUIStyle ();
 		_textStyle.normal.textColor = Color.black;
 		_textStyle.fontSize = 26;
+		_textStyle.alignment = TextAnchor.MiddleCenter;
 	}
 
 	void OnGUI()
 	{
 		var scoreText = "GAME OVER";
 		var centerScreen = Camera.main.WorldToScreenPoint (new Vector3 (0, 0, 0));
-		GUI.Label (new Rect (centerScreen.x, centerScreen.y, 100, 100), scoreText, _textStyle);
+		GUI.Label (new Rect (centerScreen.x, centerScreen.y, 0, 0), scoreText, _textStyle);
 
-		if (GUI.Button (new Rect(centerScreen.x, centerScreen.y + 100, 200, 50), "Try again"))
+		if (GUI.Button (new Rect(centerScreen.x - 100, centerScreen.y + 25, 200, 50), "Try again"))
 		{
 			Application.LoadLevel("game");
 		}
