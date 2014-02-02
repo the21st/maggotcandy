@@ -33,6 +33,7 @@ public class Candy : MonoBehaviour {
 		candy1.rigidbody2D.AddExplosionForce(pushParams.SmashPower, pushParams.ImpactPos, pushParams.SmashRadius);
 		candy1.rigidbody2D.AddTorque (Random.Range (-20, 20));
 		candy1.collider2D.enabled = true;
+		candy1.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
 		
 		
 		candyPrefab = CandyPrefabs [Random.Range (0, CandyPrefabs.Count)];
@@ -41,5 +42,6 @@ public class Candy : MonoBehaviour {
 		candy2.rigidbody2D.AddExplosionForce(pushParams.SmashPower, pushParams.ImpactPos, pushParams.SmashRadius);
 		candy1.rigidbody2D.AddTorque (Random.Range (-10, 10));
 		candy2.collider2D.enabled = true;
+		candy2.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
 	}
 }
