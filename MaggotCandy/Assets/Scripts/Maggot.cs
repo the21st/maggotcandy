@@ -19,7 +19,7 @@ public class Maggot : MonoBehaviour
 
 		transform.localRotation = Quaternion.AngleAxis (Random.Range (0, 360f), new Vector3 (0, 0, 1));
 		_movementSpeed = Random.Range(0.1f, 0.5f);
-		_rotationSpeed = Random.Range(-0.2f, 0.2f);
+		_rotationSpeed = Random.Range(-10f, 10f);
 	}
     
 	// Update is called once per frame
@@ -37,7 +37,7 @@ public class Maggot : MonoBehaviour
 
 		transform.position += _movementSpeed * Time.deltaTime * direction;
 
-		transform.Rotate(new Vector3(0, 0, 1), _rotationSpeed);
+		transform.Rotate(new Vector3(0, 0, 1), _rotationSpeed * Time.deltaTime);
 	}
 	
 	void Fall(int layerOrder)
