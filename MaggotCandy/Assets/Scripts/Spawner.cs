@@ -9,6 +9,8 @@ public class Spawner : MonoBehaviour
 	public AudioClip MaggotSpawnSound;
 	public AudioClip CandySpawnSound;
 
+	public List<Color> CandyColors;
+
 	public List<GameObject> CandyToSpawn;
 	public List<GameObject> MaggotsToSpawn;
 	public float CandyFallPeriod = 3;
@@ -52,6 +54,7 @@ public class Spawner : MonoBehaviour
 		var position = GenerateSpawnPos();
 
 		var fallingObject = (GameObject) Instantiate(FallingObject);
+		fallingObject.GetComponent<SpriteRenderer>().color = CandyColors.GetRandomElement();
 		var fallingScript = fallingObject.GetComponent<FallingSpawner>();
 		fallingScript.PrefabToCreate = CandyToSpawn.GetRandomElement();
 		fallingScript.Target = position;

@@ -33,7 +33,8 @@ public class FallingSpawner : MonoBehaviour
 
 		if (height < Target.y)
 		{
-			Instantiate(PrefabToCreate, transform.position, transform.rotation);
+			var newGameObject = (GameObject) Instantiate(PrefabToCreate, transform.position, transform.rotation);
+			newGameObject.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
 
 			Destroy(gameObject);
 		}
