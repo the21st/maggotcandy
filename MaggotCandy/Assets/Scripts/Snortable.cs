@@ -35,5 +35,6 @@ public class Snortable : MonoBehaviour {
 	{
 		_stuckToSlime = true;
 		rigidbody2D.isKinematic = true;
+		collider2D.enabled = false;
 	}
 }
