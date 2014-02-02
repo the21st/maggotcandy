@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Extensions.cs" />
      <Compile Include="Assets\Scripts\FallTrigger.cs" />
      <Compile Include="Assets\Scripts\Fallable.cs" />
+     <Compile Include="Assets\Scripts\FallingSpawner.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\GameOverGUI.cs" />
      <Compile Include="Assets\Scripts\Maggot.cs" />
