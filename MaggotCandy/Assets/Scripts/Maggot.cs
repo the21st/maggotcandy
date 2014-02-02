@@ -7,12 +7,16 @@ public class Maggot : MonoBehaviour
 	public GameObject CrushedMaggot;
 	public List<AudioClip> SquashSounds;
 
+	private static bool _gameOver;
+
 	private float _movementSpeed;
 	private float _rotationSpeed;
 
 	// Use this for initialization
 	void Start()
 	{
+		_gameOver = false;
+
 		transform.localRotation = Quaternion.AngleAxis (Random.Range (0, 360f), new Vector3 (0, 0, 1));
 		_movementSpeed = Random.Range(0.1f, 0.5f);
 		_rotationSpeed = Random.Range(-0.2f, 0.2f);
@@ -42,6 +46,19 @@ public class Maggot : MonoBehaviour
 	}
 
 	void GetSnorted()
+	{
+		if (!_gameOver)
+		{
+			this.GetComponent<Animator>().enabled = false;
+			enabled = false;
+			_gameOver = true;
+			audio.Play();
+
+			Invoke("GameOver", audio.clip.length);
+		}
+	}
+
+	void GameOver()
 	{
 		Application.LoadLevel("gameOver");
 	}
