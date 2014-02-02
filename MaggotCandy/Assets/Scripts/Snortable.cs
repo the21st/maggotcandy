@@ -5,6 +5,8 @@ public class Snortable : MonoBehaviour {
 
 	public AudioClip SnortedSound;
 
+	public float AddStonedPercent = 10f;
+
 	private bool _stuckToSlime = false;
 
 	// Use this for initialization
@@ -28,7 +30,7 @@ public class Snortable : MonoBehaviour {
 
 		Destroy (gameObject);
 		ScoreCounter.Add(1);
-		StonedBar.Add (0.1f);
+		StonedBar.Add(0.01f * AddStonedPercent);
 	}
 
 	void StickToSlime()

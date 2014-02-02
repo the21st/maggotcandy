@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SnortController : MonoBehaviour {
 
-	public float SnortDistance = 0.1f;
+	public float SuckForce = 10;
 
 	// Use this for initialization
 	void Start ()
@@ -48,7 +48,7 @@ public class SnortController : MonoBehaviour {
 					distance = collider.radius;
 				}
 
-				var forceScale = 10 * (1 - distance / collider.radius);
+				var forceScale = SuckForce * (1 - distance / collider.radius);
 				var forceDir = snortPoint - suckedObjectPos;
 				forceDir.Normalize();
 				suckedObject.rigidbody2D.AddForce(forceScale * forceDir);
