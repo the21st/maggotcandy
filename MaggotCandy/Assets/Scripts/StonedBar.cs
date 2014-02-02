@@ -27,7 +27,7 @@ public class StonedBar : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.DrawTexture(new Rect(pos.x, pos.y, size.x, size.y), progressBarEmpty);
-		GUI.DrawTexture(new Rect(pos.x, pos.y + size.y * (1-Mathf.Clamp01(_progress)), size.x, size.y * Mathf.Clamp01(_progress)), progressBarFull);
+		GUI.DrawTexture(new Rect(pos.x, pos.y + size.y * (1 - Mathf.Clamp01(_progress)), size.x, size.y * Mathf.Clamp01(_progress)), progressBarFull);
 	}
 	
 	void Update()

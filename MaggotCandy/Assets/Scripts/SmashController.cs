@@ -26,6 +26,8 @@ public class SmashController : MonoBehaviour {
 	}
 
 	public float FallLength;
+	public float FallSpeed = 100;
+
 	public float StaySmashed;
 	public float SmashRadius;
 	public float CrushRadius;
@@ -67,7 +69,7 @@ public class SmashController : MonoBehaviour {
 				var deltaFall = Time.deltaTime * _fallSpeed;
 				tempPos.y -= deltaFall;
 				_currentFallLength += deltaFall;
-				_fallSpeed += 100 * Time.deltaTime;
+				_fallSpeed += FallSpeed * Time.deltaTime;
 				transform.position = tempPos;
 			}
 			break;
