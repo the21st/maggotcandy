@@ -52,12 +52,13 @@ public class SnortController : MonoBehaviour {
 				var forceDir = snortPoint - suckedObjectPos;
 				forceDir.Normalize();
 				suckedObject.rigidbody2D.AddForce(forceScale * forceDir);
-
-				if (distance < SnortDistance)
-				{
-					suckedObject.SendMessage("GetSnorted", SendMessageOptions.DontRequireReceiver);
-				}
 			}
+		}
+
+		var snortedObjects = Physics2D.OverlapPointAll(snortPoint);
+		foreach (var snortedObject in snortedObjects)
+		{
+			snortedObject.SendMessage("GetSnorted", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }
