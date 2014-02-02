@@ -41,6 +41,11 @@ public class Maggot : MonoBehaviour
 		enabled = false;
 	}
 
+	void GetSnorted()
+	{
+		Application.LoadLevel("gameOver");
+	}
+
 	void Crush(PushParams pushParams)
 	{
 		AudioSource.PlayClipAtPoint(SquashSounds.GetRandomElement(), transform.position);
