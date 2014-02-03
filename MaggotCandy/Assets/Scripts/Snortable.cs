@@ -29,7 +29,7 @@ public class Snortable : MonoBehaviour {
 		AudioSource.PlayClipAtPoint (SnortedSound, transform.position);
 
 		Destroy (gameObject);
-		ScoreCounter.Add(1);
+		ScoreCounter.Add(Random.Range(25, 40));
 		StonedBar.Add(0.01f * AddStonedPercent);
 	}
 
