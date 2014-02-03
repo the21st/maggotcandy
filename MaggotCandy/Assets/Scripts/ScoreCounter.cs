@@ -26,6 +26,11 @@ public class ScoreCounter : MonoBehaviour {
 	{
 		_totalScore += score;
 	}
+
+	public static int GetScore()
+	{
+		return _totalScore;
+	}
 	
 	void OnGUI()
 	{

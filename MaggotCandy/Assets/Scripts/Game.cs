@@ -108,8 +108,11 @@ public class Game : MonoBehaviour {
 				break;
 			case GameState.GameOver:
 				GUI.DrawTexture(new Rect(0,0, Screen.width, Screen.height), GameOverImage);
-				
+
 				var centerScreen = new Vector2(0.5f * Screen.width, 0.5f * Screen.height);
+
+				GUI.Label (new Rect (centerScreen.x, centerScreen.y - 50, 0, 0), "SCORE: " + ScoreCounter.GetScore().ToString("D7"), _textStyle);
+
 				if (GUI.Button (new Rect(centerScreen.x - 100, centerScreen.y + 25, 200, 50), "Try again"))
 				{
 					Application.LoadLevel("game");
