@@ -13,7 +13,7 @@ public class ScoreCounter : MonoBehaviour {
 	void Start () {
 		_totalScore = 0;
 		_textStyle = new GUIStyle ();
-		_textStyle.normal.textColor = Color.black;
+		_textStyle.normal.textColor = new Color(0, 183, 210);
 		_textStyle.fontSize = 26;
 	}
 	
