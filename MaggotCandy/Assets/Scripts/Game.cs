@@ -17,6 +17,7 @@ public class Game : MonoBehaviour {
 	}
 
 	public Texture2D StartGameImage;
+	public Texture2D GameOverImage;
 	public GameObject GUIObject;
 
 	public GameObject SmashFist;
@@ -106,10 +107,9 @@ public class Game : MonoBehaviour {
 			case GameState.Running:
 				break;
 			case GameState.GameOver:
-				var scoreText = "GAME OVER";
-				var centerScreen = new Vector2(0.5f * Screen.width, 0.5f * Screen.height);
-				GUI.Label (new Rect (centerScreen.x, centerScreen.y, 0, 0), scoreText, _textStyle);
+				GUI.DrawTexture(new Rect(0,0, Screen.width, Screen.height), GameOverImage);
 				
+				var centerScreen = new Vector2(0.5f * Screen.width, 0.5f * Screen.height);
 				if (GUI.Button (new Rect(centerScreen.x - 100, centerScreen.y + 25, 200, 50), "Try again"))
 				{
 					Application.LoadLevel("game");
