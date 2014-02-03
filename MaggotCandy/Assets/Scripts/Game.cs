@@ -46,6 +46,7 @@ public class Game : MonoBehaviour {
 
 	public void GameOver()
 	{
+		Destroy(_currentFist);
 		Time.timeScale = 0;
 		_state = GameState.GameOver;
 		GUIObject.SetActive(false);
@@ -69,6 +70,10 @@ public class Game : MonoBehaviour {
 				UpdateGame();
 				break;
 			case GameState.GameOver:
+				if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+				{
+					Application.LoadLevel("game");
+				}
 				break;
 			default:
 				throw new System.ArgumentOutOfRangeException();
@@ -112,11 +117,6 @@ public class Game : MonoBehaviour {
 				var centerScreen = new Vector2(0.5f * Screen.width, 0.5f * Screen.height);
 
 				GUI.Label (new Rect (centerScreen.x, centerScreen.y - 50, 0, 0), "SCORE: " + ScoreCounter.GetScore().ToString("D7"), _textStyle);
-
-				if (GUI.Button (new Rect(centerScreen.x - 100, centerScreen.y + 25, 200, 50), "Try again"))
-				{
-					Application.LoadLevel("game");
-				}
 				break;
 			default:
 				throw new System.ArgumentOutOfRangeException();
