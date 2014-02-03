@@ -9,6 +9,9 @@ public class Spawner : MonoBehaviour
 	public AudioClip MaggotSpawnSound;
 	public AudioClip CandySpawnSound;
 
+	public int CandiesSpawned = 1;
+	public int MaggotsSpawned = 1;
+
 	public List<Color> CandyColors;
 
 	public List<GameObject> CandyToSpawn;
@@ -69,14 +72,19 @@ public class Spawner : MonoBehaviour
 		if (_candyFallTimer > CandyFallPeriod)
 		{
 			_candyFallTimer = 0;
+			
 			SpawnCandy(true);
+			for(int i = 0; i < CandiesSpawned - 1; i++)
+				SpawnCandy(false);
 		}
 
 		_sneezeTimer += Time.deltaTime;
 		if (_sneezeTimer > SneezePeriod)
 		{
 			_sneezeTimer = 0;
-			Sneeze();
+			
+			for(int i = 0; i < MaggotsSpawned; i++)
+				Sneeze();
 		}
 	}
 }
