@@ -49,7 +49,9 @@ public class Maggot : MonoBehaviour
 	{
 		if (!_gameOver)
 		{
-			Destroy(gameObject);
+			FindObjectOfType<SnortController>().StopMoving();
+
+			renderer.enabled = false;
 			_gameOver = true;
 			AudioSource.PlayClipAtPoint(audio.clip, transform.position);
 
