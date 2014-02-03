@@ -39,7 +39,7 @@ public class Game : MonoBehaviour {
 		Time.timeScale = 0;
 		
 		_textStyle = new GUIStyle ();
-		_textStyle.normal.textColor = Color.black;
+		_textStyle.normal.textColor = Color.white;
 		_textStyle.fontSize = 26;
 		_textStyle.alignment = TextAnchor.MiddleCenter;
 	}
