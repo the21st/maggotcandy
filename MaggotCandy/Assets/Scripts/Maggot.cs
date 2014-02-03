@@ -49,10 +49,9 @@ public class Maggot : MonoBehaviour
 	{
 		if (!_gameOver)
 		{
-			this.GetComponent<Animator>().enabled = false;
-			enabled = false;
+			Destroy(gameObject);
 			_gameOver = true;
-			audio.Play();
+			AudioSource.PlayClipAtPoint(audio.clip, transform.position);
 
 			Invoke("Snorted", audio.clip.length);
 		}
