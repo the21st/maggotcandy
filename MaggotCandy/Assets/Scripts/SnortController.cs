@@ -6,15 +6,24 @@ public class SnortController : MonoBehaviour {
 	public float SuckForce = 10;
 	public float MaxShake = 1;
 
+	bool _stopped;
+
 	// Use this for initialization
 	void Start ()
 	{
+		_stopped = false;
 	
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+		if (_stopped)
+		{
+			audio.Stop();
+			return;
+		}
+
 		var stonedAmount = FindObjectOfType<StonedBar>().GetProgress();
 		var shake = Mathf.Lerp(0, 0.05f * MaxShake, 1 - Mathf.Clamp01(1.5f * stonedAmount));
 		transform.position = Extensions.GetMousePosition2D() + shake * Random.insideUnitCircle;
@@ -63,5 +72,10 @@ public class SnortController : MonoBehaviour {
 		{
 			snortedObject.SendMessage("GetSnorted", SendMessageOptions.DontRequireReceiver);
 		}
+	}
+
+	public void StopMoving()
+	{
+		_stopped = true;
 	}
 }
