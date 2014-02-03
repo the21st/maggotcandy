@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScoreCounter : MonoBehaviour {
 
-	private static int _totalScore = 0;
+	private static int _totalScore;
 	public Vector2 pos  = new Vector2(20, 40);
 	public Vector2 size = new Vector2(20, 60);
 
@@ -14,6 +14,7 @@ public class ScoreCounter : MonoBehaviour {
 		_totalScore = 0;
 		_textStyle = new GUIStyle ();
 		_textStyle.normal.textColor = Color.black;
+		_textStyle.fontSize = 26;
 	}
 	
 	// Update is called once per frame
@@ -28,7 +29,7 @@ public class ScoreCounter : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		var scoreText = "SCORE: " + _totalScore.ToString("D5");
+		var scoreText = "SCORE: " + _totalScore.ToString("D7");
 		GUI.Label (new Rect (pos.x, pos.y, size.x, size.y), scoreText, _textStyle);
 	}
 }

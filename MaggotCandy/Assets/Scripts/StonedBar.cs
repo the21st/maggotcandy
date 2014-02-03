@@ -16,7 +16,9 @@ public class StonedBar : MonoBehaviour {
 	public Vector2 pos  = new Vector2(20, 40);
 	public Vector2 size = new Vector2(20, 60);
 	public Texture2D progressBarEmpty;
-	public Texture2D progressBarFull;
+	public Texture2D progressBarLow;
+	public Texture2D progressBarMedium;
+	public Texture2D progressBarHigh;
 
 	public static void Add(float x)
 	{
@@ -27,7 +29,8 @@ public class StonedBar : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.DrawTexture(new Rect(pos.x, pos.y, size.x, size.y), progressBarEmpty);
-		GUI.DrawTexture(new Rect(pos.x, pos.y + size.y * (1 - Mathf.Clamp01(_progress)), size.x, size.y * Mathf.Clamp01(_progress)), progressBarFull);
+		var progressBar = _progress < 0.33f ? progressBarLow : _progress < 0.66f ? progressBarMedium : progressBarHigh;
+		GUI.DrawTexture(new Rect(pos.x, pos.y + size.y * (1 - Mathf.Clamp01(_progress)) - 1.5f, size.x, size.y * Mathf.Clamp01(_progress)), progressBar);
 	}
 	
 	void Update()
@@ -40,5 +43,10 @@ public class StonedBar : MonoBehaviour {
 		}
 
 		_progress = Mathf.Clamp01 (_progress);
+	}
+
+	public float GetProgress()
+	{
+		return _progress;
 	}
 }

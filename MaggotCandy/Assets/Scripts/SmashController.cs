@@ -50,7 +50,9 @@ public class SmashController : MonoBehaviour {
 		switch (_state)
 		{
 		case FistState.Idle:
-			transform.position = Extensions.GetMousePosition2D();
+			var stonedAmount = FindObjectOfType<StonedBar>().GetProgress();
+			var shake = Mathf.Lerp(0, 0.05f, 1 - Mathf.Clamp01(1.5f * stonedAmount));
+			transform.position = Extensions.GetMousePosition2D() + shake * Random.insideUnitCircle;
 			if (Input.GetMouseButtonDown(0))
 			{
 				_currentFallLength = 0;
