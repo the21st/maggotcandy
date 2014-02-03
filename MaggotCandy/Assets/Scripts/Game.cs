@@ -74,7 +74,7 @@ public class Game : MonoBehaviour {
 				UpdateGame();
 				break;
 			case GameState.GameOver:
-				if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+				if (Input.GetKeyDown(KeyCode.Space))
 				{
 					Application.LoadLevel("game");
 				}
