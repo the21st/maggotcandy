@@ -18,7 +18,6 @@ public class Game : MonoBehaviour {
 
 	public Texture2D StartGameImage;
 	public Texture2D GameOverImage;
-	public Texture2D VignetteImage;
 	public GameObject GUIObject;
 
 	public GameObject SmashFist;
@@ -65,6 +64,10 @@ public class Game : MonoBehaviour {
 					_state = GameState.Running;
 					_currentFist = (GameObject)Instantiate (SmashFist, Extensions.GetMousePosition3D (), Quaternion.identity);
 					GUIObject.SetActive(true);
+
+					FindObjectOfType<Spawner>().SpawnCandy(true);
+					FindObjectOfType<Spawner>().SpawnCandy(false);
+					FindObjectOfType<Spawner>().SpawnCandy(false);
 				}
 				break;
 			case GameState.Running:
@@ -105,8 +108,6 @@ public class Game : MonoBehaviour {
 
 	void OnGUI()
 	{
-		GUI.DrawTexture(new Rect(0,0, Screen.width, Screen.height), VignetteImage);
-
 		switch (_state)
 		{
 			case GameState.Start:

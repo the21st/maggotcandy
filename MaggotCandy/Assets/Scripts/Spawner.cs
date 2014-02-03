@@ -21,7 +21,6 @@ public class Spawner : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-	
 	}
 
 	Vector2 GenerateSpawnPos()
@@ -46,10 +45,13 @@ public class Spawner : MonoBehaviour
 		fallingScript.Target = position;
 	}
 
-	void SpawnCandy()
+	public void SpawnCandy(bool sound)
 	{
-		audio.clip = CandySpawnSound;
-		audio.Play();
+		if (sound)
+		{
+			audio.clip = CandySpawnSound;
+			audio.Play();
+		}
 
 		var position = GenerateSpawnPos();
 
@@ -67,7 +69,7 @@ public class Spawner : MonoBehaviour
 		if (_candyFallTimer > CandyFallPeriod)
 		{
 			_candyFallTimer = 0;
-			SpawnCandy();
+			SpawnCandy(true);
 		}
 
 		_sneezeTimer += Time.deltaTime;
