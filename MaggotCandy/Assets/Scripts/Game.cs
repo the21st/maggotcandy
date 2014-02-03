@@ -58,7 +58,7 @@ public class Game : MonoBehaviour {
 		switch (_state)
 		{
 			case GameState.Start:
-				if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+				if (Input.GetKeyDown(KeyCode.Space))
 				{
 					Time.timeScale = 1;
 					_state = GameState.Running;
