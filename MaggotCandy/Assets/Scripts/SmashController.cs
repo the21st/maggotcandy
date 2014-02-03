@@ -32,6 +32,7 @@ public class SmashController : MonoBehaviour {
 	public float SmashRadius;
 	public float CrushRadius;
 	public float SmashPower;
+	public float MaxShake = 1;
 
 	public List<AudioClip> SmashSounds;
 
@@ -51,7 +52,7 @@ public class SmashController : MonoBehaviour {
 		{
 		case FistState.Idle:
 			var stonedAmount = FindObjectOfType<StonedBar>().GetProgress();
-			var shake = Mathf.Lerp(0, 0.05f, 1 - Mathf.Clamp01(1.5f * stonedAmount));
+			var shake = Mathf.Lerp(0, 0.05f * MaxShake, 1 - Mathf.Clamp01(1.5f * stonedAmount));
 			transform.position = Extensions.GetMousePosition2D() + shake * Random.insideUnitCircle;
 			if (Input.GetMouseButtonDown(0))
 			{
